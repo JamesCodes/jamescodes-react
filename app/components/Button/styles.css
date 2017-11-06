@@ -1,0 +1,13 @@
+.Button {
+  background: var(--color-brand-red);
+
+  &:hover {
+    background: color(var(--color-brand-red) alpha(-50%));
+  }
+}
+
+@media (--xs-only-viewport) {
+  .Button {
+    background: color(var(--color-brand-red) lightness(50%));
+  }
+}

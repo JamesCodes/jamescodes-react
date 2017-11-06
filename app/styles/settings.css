@@ -1,0 +1,55 @@
+:root {
+  /**
+    Brand Colors
+  */
+  --color-brand-red: #FF0000;
+
+  /**
+    Neutral Colors
+  */
+  --color-grey-snow: #F0F0F0;
+
+  /**
+    Box Shadows
+  */
+  --box-shadow-1: 0 2px 9px 3px rgba(91, 91, 91, .1);
+
+  /**
+    Text Colors
+  */
+  --text-color-copy: #333;
+
+  /**
+    Breakpoint Sizes
+  */
+  --xs-min: 30;
+  --sm-min: 52.5;
+  --md-min: 67.5;
+  --lg-min: 87.5;
+
+  --screen-xs-min: var(--xs-min)em;
+  --screen-sm-min: var(--sm-min)em;
+  --screen-md-min: var(--md-min)em;
+  --screen-lg-min: var(--lg-min)em;
+
+  /**
+    Grid Related
+    - These live globally so that they can be used elsewhere
+  */
+
+  --gutter-width: 1rem;
+  --outer-margin: 2rem;
+  --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
+  --half-gutter-width: calc((var(--gutter-width) * 0.5));
+  --container-sm: calc(var(--sm-min) + var(--gutter-width));
+  --container-md: calc(var(--md-min) + var(--gutter-width));
+  --container-lg: calc(var(--lg-min) + var(--gutter-width));
+}
+
+/**
+  Custom Media Queries
+*/
+@custom-media --sm-viewport only screen and (min-width: 52.5em);
+@custom-media --md-viewport only screen and (min-width: 67.5em);
+@custom-media --lg-viewport only screen and (min-width: 87.5em);
+@custom-media --xs-only-viewport only screen and (max-width: 52.5em);
