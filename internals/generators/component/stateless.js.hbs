@@ -6,18 +6,25 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-{{#if wantStyles}}
-import styles from 'styles.css';
-{{/if}}
-
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 {{/if}}
+{{#if wantStyles}}
+import styles from './styles.css';
+{{/if}}
 
 function {{ properCase name }}() {
     return (
-        <div>
+        {{#if wantStyles}}
+            <div
+                className={
+                    styles.{{properCase name}}
+                }
+            >
+        {{else}}
+            <div>
+        {{/if}}
             {{#if wantMessages}}
             <FormattedMessage {...messages.header} />
             {{/if}}

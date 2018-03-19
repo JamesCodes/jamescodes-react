@@ -80,6 +80,16 @@ module.exports = {
             });
         }
 
+        // If they want styles
+        if (data.wantStyles) {
+            actions.push({
+                type: 'add',
+                path: '../../app/components/{{properCase name}}/styles.css',
+                templateFile: './component/styles.css.hbs',
+                abortOnFail: true,
+            });
+        }
+
         // If want Loadable.js to load the component asynchronously
         if (data.wantLoadable) {
             actions.push({
