@@ -2,23 +2,11 @@
     /**
     Brand Colors
     */
-    --color-brand-blue: #374561;
-    --color-brand-mid-blue: #546789;
-    --color-brand-light-blue: #93A6C1;
-    --color-brand-pink: #EA5F6E;
 
     /**
     Neutral Colors
     */
     --color-white: #ffffff;
-    --color-grey-snow: #f9fafc;
-    --color-platinum: #E6ECF3;
-    --color-grey: #D5DFEE;
-
-    /**
-    Box Shadows
-    */
-    --box-shadow-1: 0 2px 9px 3px rgba(91, 91, 91, 0.1);
 
     /**
     Text Colors
@@ -34,7 +22,7 @@
     /**
     Fonts
     */
-    --font-sans-serif-family: 'FaktSaftPro', sans-serif;
+    --font-sans-serif-family: sans-serif;
     --font-weight-light: 300;
     --font-weight-medium: 400;
     --font-weight-bold: 500;
@@ -42,24 +30,20 @@
     /**
      * Spacing
     */
-    --spacing-unit: 1rem;
+    --spacing-unit: 8px;
 
     /**
-    * Grid
+    * Grid Related
     */
-    --gutter-width: 25px;
-    --outer-margin: 25px;
+    --gutter-width: calc(var(--spacing-unit) * 2);
+    --outer-margin: calc(var(--spacing-unit) * 4);
     --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
     --half-gutter-width: calc((var(--gutter-width) * 0.5));
     --xs-min: 0rem;
     --sm-min: 576px;
     --md-min: 768px;
-    --lg-min: 1309px;
-
-    /**
-    * Share Container
-    */
-    --share-width: 320px;
+    --lg-min: 992px;
+    --xl-min: 1400px;
 }
 
 /**
@@ -67,12 +51,14 @@
 */
 @custom-media --sm-viewport only screen and (min-width: 576px);
 @custom-media --md-viewport only screen and (min-width: 768px);
-@custom-media --lg-viewport only screen and (min-width: 1308px);
+@custom-media --lg-viewport only screen and (min-width: 992px);
+@custom-media --xl-viewport only screen and (min-width: 1439px);
 
 @custom-media --xs-only only screen and (max-width: 575px);
 @custom-media --sm-only only screen and (min-width: 576px) and (max-width: 767px);
-@custom-media --md-only only screen and (min-width: 768px) and (max-width: 1308px);
-@custom-media --lg-only only screen and (min-width: 1308px);
+@custom-media --md-only only screen and (min-width: 768px) and (max-width: 991px);
+@custom-media --lg-only only screen and (min-width: 992px) and (max-width: 1439px);
+@custom-media --xl-only only screen and (min-width: 1440px);
 
 :export {
     transition-speed: var(--transition-speed);
@@ -80,4 +66,5 @@
     screen-sm: var(--sm-min);
     screen-md: var(--md-min);
     screen-lg: var(--lg-min);
+    screen-xl: var(--xl-min);
 }
