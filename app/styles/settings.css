@@ -1,55 +1,83 @@
 :root {
-  /**
+    /**
     Brand Colors
-  */
-  --color-brand-red: #FF0000;
+    */
+    --color-brand-blue: #374561;
+    --color-brand-mid-blue: #546789;
+    --color-brand-light-blue: #93A6C1;
+    --color-brand-pink: #EA5F6E;
 
-  /**
+    /**
     Neutral Colors
-  */
-  --color-grey-snow: #F0F0F0;
+    */
+    --color-white: #ffffff;
+    --color-grey-snow: #f9fafc;
+    --color-platinum: #E6ECF3;
+    --color-grey: #D5DFEE;
 
-  /**
+    /**
     Box Shadows
-  */
-  --box-shadow-1: 0 2px 9px 3px rgba(91, 91, 91, .1);
+    */
+    --box-shadow-1: 0 2px 9px 3px rgba(91, 91, 91, 0.1);
 
-  /**
+    /**
     Text Colors
-  */
-  --text-color-copy: #333;
+    */
+    --text-color-copy: #333;
 
-  /**
-    Breakpoint Sizes
-  */
-  --xs-min: 30;
-  --sm-min: 52.5;
-  --md-min: 67.5;
-  --lg-min: 87.5;
+    /**
+    Transitions
+    */
+    --transition-speed: 200ms;
+    --transition-ease: ease-in-out;
 
-  --screen-xs-min: var(--xs-min)em;
-  --screen-sm-min: var(--sm-min)em;
-  --screen-md-min: var(--md-min)em;
-  --screen-lg-min: var(--lg-min)em;
+    /**
+    Fonts
+    */
+    --font-sans-serif-family: 'FaktSaftPro', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-medium: 400;
+    --font-weight-bold: 500;
 
-  /**
-    Grid Related
-    - These live globally so that they can be used elsewhere
-  */
+    /**
+     * Spacing
+    */
+    --spacing-unit: 1rem;
 
-  --gutter-width: 1rem;
-  --outer-margin: 2rem;
-  --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
-  --half-gutter-width: calc((var(--gutter-width) * 0.5));
-  --container-sm: calc(var(--sm-min) + var(--gutter-width));
-  --container-md: calc(var(--md-min) + var(--gutter-width));
-  --container-lg: calc(var(--lg-min) + var(--gutter-width));
+    /**
+    * Grid
+    */
+    --gutter-width: 25px;
+    --outer-margin: 25px;
+    --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
+    --half-gutter-width: calc((var(--gutter-width) * 0.5));
+    --xs-min: 0rem;
+    --sm-min: 576px;
+    --md-min: 768px;
+    --lg-min: 1309px;
+
+    /**
+    * Share Container
+    */
+    --share-width: 320px;
 }
 
 /**
   Custom Media Queries
 */
-@custom-media --sm-viewport only screen and (min-width: 52.5em);
-@custom-media --md-viewport only screen and (min-width: 67.5em);
-@custom-media --lg-viewport only screen and (min-width: 87.5em);
-@custom-media --xs-only-viewport only screen and (max-width: 52.5em);
+@custom-media --sm-viewport only screen and (min-width: 576px);
+@custom-media --md-viewport only screen and (min-width: 768px);
+@custom-media --lg-viewport only screen and (min-width: 1308px);
+
+@custom-media --xs-only only screen and (max-width: 575px);
+@custom-media --sm-only only screen and (min-width: 576px) and (max-width: 767px);
+@custom-media --md-only only screen and (min-width: 768px) and (max-width: 1308px);
+@custom-media --lg-only only screen and (min-width: 1308px);
+
+:export {
+    transition-speed: var(--transition-speed);
+    screen-xs: var(--xs-min);
+    screen-sm: var(--sm-min);
+    screen-md: var(--md-min);
+    screen-lg: var(--lg-min);
+}

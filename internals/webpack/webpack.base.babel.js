@@ -34,9 +34,6 @@ module.exports = (options) => ({
                 },
             },
             {
-                // Preprocess our own .css files
-                // This is the place to add your own loaders (e.g. sass/less etc.)
-                // for a list of loaders, see https://webpack.js.org/loaders/#styling
                 test: /\.css|scss$/,
                 exclude: /node_modules/,
                 use: [
@@ -53,8 +50,8 @@ module.exports = (options) => ({
                         options: {
                             ident: 'postcss',
                             plugins: () => [
-                                require('postcss-cssnext')({
-                                    // eslint-disable-line global-require
+                                require('postcss-cssnext')({ // eslint-disable-line global-require
+                                    browsers: ['> 1%', 'last 2 versions', 'ie 10', 'Safari 10'],
                                     features: {
                                         customProperties: {
                                             variables: map.vars,
@@ -134,7 +131,7 @@ module.exports = (options) => ({
     ]),
     resolve: {
         modules: ['app', 'node_modules'],
-        extensions: ['.js', '.jsx', '.react.js'],
+        extensions: ['.js', '.jsx', '.react.js', '.css'],
         mainFields: ['browser', 'jsnext:main', 'main'],
     },
     devtool: options.devtool,
