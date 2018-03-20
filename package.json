@@ -339,6 +339,7 @@
         "rimraf": "2.6.1",
         "shelljs": "0.7.7",
         "style-loader": "0.18.1",
+        "understyle": "^2.0.4",
         "url-loader": "0.5.8",
         "webpack": "3.5.5",
         "webpack-dev-middleware": "1.11.0",
