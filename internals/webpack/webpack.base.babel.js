@@ -7,7 +7,6 @@ const webpack = require('webpack');
 const webpackPostcssTools = require('webpack-postcss-tools');
 const map = webpackPostcssTools.makeVarMap('./app/styles/settings.css');
 
-
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
 // see https://github.com/webpack/loader-utils/issues/56 parseQuery() will be replaced with getOptions()
@@ -35,7 +34,7 @@ module.exports = (options) => ({
                 },
             },
             {
-                test: /\.css|scss$/,
+                test: /\.s?css$/,
                 exclude: /node_modules/,
                 use: [
                     'style-loader',
@@ -52,7 +51,12 @@ module.exports = (options) => ({
                             ident: 'postcss',
                             plugins: () => [
                                 require('postcss-cssnext')({ // eslint-disable-line global-require
-                                    browsers: ['> 1%', 'last 2 versions', 'ie 10', 'Safari 10'],
+                                    browsers: [
+                                        '> 1%',
+                                        'last 2 versions',
+                                        'ie 10',
+                                        'Safari 10',
+                                    ],
                                     features: {
                                         customProperties: {
                                             variables: map.vars,
@@ -63,6 +67,12 @@ module.exports = (options) => ({
                                     },
                                 }),
                             ],
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
                         },
                     },
                 ],
@@ -132,7 +142,7 @@ module.exports = (options) => ({
     ]),
     resolve: {
         modules: ['app', 'node_modules'],
-        extensions: ['.js', '.jsx', '.react.js', '.css'],
+        extensions: ['.js', '.jsx', '.react.js', '.css', '.scss'],
         mainFields: ['browser', 'jsnext:main', 'main'],
     },
     devtool: options.devtool,
