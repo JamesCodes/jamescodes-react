@@ -5,6 +5,7 @@
  */
 
 import { fromJS, Map } from 'immutable';
+import { LOCATION_CHANGE } from 'connected-react-router';
 import { LOADER_SHOW, LOADER_HIDE, INITIAL_LOAD_COMPLETE } from './constants';
 
 const initialState = fromJS({
@@ -15,15 +16,25 @@ const initialState = fromJS({
 
 function HelperLoaderReducer(state = initialState, action) {
     switch (action.type) {
+        case LOCATION_CHANGE:
+            return state.merge(
+                new Map({
+                    loading: true,
+                })
+            );
         case LOADER_SHOW:
-            return state.merge(new Map({
-                loading: true,
-                message: action.message,
-            }));
+            return state.merge(
+                new Map({
+                    loading: true,
+                    message: action.message,
+                })
+            );
         case LOADER_HIDE:
-            return state.merge(new Map({
-                loading: false,
-            }));
+            return state.merge(
+                new Map({
+                    loading: false,
+                })
+            );
         case INITIAL_LOAD_COMPLETE:
             return state.set('initialLoad', false);
         default:

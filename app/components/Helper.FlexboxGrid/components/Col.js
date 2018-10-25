@@ -37,7 +37,11 @@ const classMap = {
 };
 
 function isInteger(value) {
-    return typeof value === 'number' && isFinite(value) && Math.floor(value) === value;
+    return (
+        typeof value === 'number'
+        && isFinite(value) // eslint-disable-line no-restricted-globals
+        && Math.floor(value) === value
+    );
 }
 
 function getColClassNames(props) {
@@ -60,9 +64,13 @@ function getColClassNames(props) {
     }
 
     return Object.keys(props)
-    .filter((key) => classMap[key])
-    .map((key) => getClass(isInteger(props[key]) ? (`${classMap[key]}-${props[key]}`) : classMap[key]))
-    .concat(extraClasses);
+        .filter((key) => classMap[key])
+        .map((key) => getClass(
+            isInteger(props[key])
+                ? `${classMap[key]}-${props[key]}`
+                : classMap[key]
+        ))
+        .concat(extraClasses);
 }
 
 export function getColumnProps(props) {

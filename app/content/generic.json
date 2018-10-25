@@ -1,0 +1,16 @@
+{
+    "footer": {
+        "address": "<p>1st Floor,<br />105 - 107 Farringdon Road,<br />London EC1R 3BU</p>",
+        "directionsURL": "https://www.google.co.uk/maps/dir//105-107+Farringdon+Rd,+London+EC1R+3BU/@51.5226724,-0.1098602,17z/data=!4m9!4m8!1m0!1m5!1m1!1s0x48761b4e4dbcc627:0x68cf90984e07d350!2m2!1d-0.1076715!2d51.5226724!3e0",
+        "contact": {
+            "tel": "+44 (0)20 7890 1234",
+            "email": "info@stadion.io"
+        },
+        "social": {
+            "twitterURL": "https://twitter.com",
+            "instagramURL": "https://instagram.com",
+            "mediumURL": "https://medium.com/@stadionHQ"
+        },
+        "copyright": "2018 Stadion Ltd. Company number 09354709."
+    }
+}

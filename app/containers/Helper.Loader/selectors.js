@@ -33,17 +33,16 @@ const selectInitialLoadState = createSelector(
  * Default selector used by HelperLoader
  */
 
-const makeSelectHelperLoader = () =>
-    createSelector(
-        selectLoadingState,
-        selectLoadingMessage,
-        selectInitialLoadState,
-        (loading, message, initialLoad) => ({
-            loading,
-            message,
-            initialLoad,
-        })
-    );
+const makeSelectHelperLoader = () => createSelector(
+    selectLoadingState,
+    selectLoadingMessage,
+    selectInitialLoadState,
+    (loading, message, initialLoad) => ({
+        loading,
+        message,
+        initialLoad,
+    })
+);
 
 export default makeSelectHelperLoader;
 export { selectHelperLoaderDomain };

@@ -1,0 +1,101 @@
+$xs-min: 0px;
+$xs-gutter-width: 30px;
+
+$sm-min: 360px;
+$sm-gutter-width: 30px;
+
+$md-min: 600px;
+$md-gutter-width: 30px;
+
+$lg-min: 768px;
+$lg-gutter-width: 30px;
+
+$xl-min: 1440px;
+$xl-gutter-width: 30px;
+
+/**
+=============================
+        Media queries
+=============================
+**/
+
+/* ==== 360px - 599px ==== */
+
+@mixin viewport-sm {
+  @media (min-width: #{$sm-min}) and (max-width: #{$md-min - 1px}) {
+    @content;
+  }
+}
+
+/* ==== 360px > ==== */
+
+@mixin viewport-sm-up {
+  @media (min-width: #{$sm-min}) {
+    @content;
+  }
+}
+
+/* ==== 600px - 767px ==== */
+
+@mixin viewport-md {
+  @media (min-width: #{$md-min}) and (max-width: #{$lg-min - 1px}) {
+    @content;
+  }
+}
+
+/* ==== 600px > ==== */
+
+@mixin viewport-md-up {
+  @media (min-width: #{$md-min}) {
+    @content;
+  }
+}
+
+/* ==== 600px > & touch ==== */
+
+@mixin viewport-md-touch {
+    @media (hover: none) and (min-width: $md-min) {
+      @content;
+    }
+}
+
+/* ==== 600px > & non-touch ==== */
+
+@mixin viewport-md-non-touch {
+    @media (hover: hover) and (min-width: $md-min) {
+      @content;
+    }
+}
+
+/* ==== 768px - 1011px ==== */
+
+@mixin viewport-lg {
+  @media (min-width: #{$lg-min}) and (max-width: #{$xl-min - 1px}) {
+    @content;
+  }
+}
+
+/* ==== 768px > ==== */
+
+@mixin viewport-lg-up {
+  @media (min-width: #{$lg-min}) {
+    @content;
+  }
+}
+
+/* ==== 1012px > ==== */
+
+@mixin viewport-xl {
+  @media (min-width: #{$xl-min}) {
+    @content;
+  }
+}
+
+
+:export {
+  viewport-sm: $sm-min;
+  viewport-md: $md-min;
+  viewport-lg: $lg-min;
+  viewport-xl: $xl-min;
+}
+

@@ -10,11 +10,10 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import LOADER_ACTIONS_SHAPE from 'proptypes/loaderActions';
-import { Grid, Row, Col } from 'components/Helper.FlexboxGrid';
-import Spacer from 'components/Atom.Spacer';
-import messages from './messages';
+import { Helmet } from 'react-helmet';
+import content from 'content/home.json';
+import styles from './styles.scss';
 
 export default class HomePage extends React.PureComponent {
     static propTypes = {
@@ -28,15 +27,16 @@ export default class HomePage extends React.PureComponent {
 
     render() {
         return (
-            <Grid fluid>
-                <Row>
-                    <Col xs>
-                        <Spacer py={1}>
-                            <h1><FormattedMessage {...messages.header} /></h1>
-                        </Spacer>
-                    </Col>
-                </Row>
-            </Grid>
+            <div className={styles.Home}>
+                <Helmet>
+                    <title>{content.page.title}</title>
+                    <meta
+                        name="description"
+                        content={content.page.description}
+                    />
+                </Helmet>
+                JamesCodes React Boilerplate
+            </div>
         );
     }
 }

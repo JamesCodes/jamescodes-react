@@ -14,10 +14,16 @@ import getInjectors from './reducerInjectors';
 export default ({ key, reducer }) => (WrappedComponent) => {
     class ReducerInjector extends React.Component {
         static WrappedComponent = WrappedComponent;
+
         static contextTypes = {
             store: PropTypes.object.isRequired,
         };
-        static displayName = `withReducer(${(WrappedComponent.displayName || WrappedComponent.name || 'Component')})`;
+
+        static displayName = `withReducer(${WrappedComponent.displayName
+            || WrappedComponent.name
+            || 'Component'})`;
+
+        injectors = getInjectors(this.context.store); // eslint-disable-line
 
         componentWillMount() {
             const { injectReducer } = this.injectors;
@@ -25,12 +31,10 @@ export default ({ key, reducer }) => (WrappedComponent) => {
             injectReducer(key, reducer);
         }
 
-        injectors = getInjectors(this.context.store);
-
         render() {
             return <WrappedComponent {...this.props} />;
         }
-  }
+    }
 
     return hoistNonReactStatics(ReducerInjector, WrappedComponent);
 };

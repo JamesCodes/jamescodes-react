@@ -1,0 +1,77 @@
+{
+    "page": {
+        "title": "Stadion",
+        "description": "Homepage description"
+    },
+    "hero": {
+        "title": "<span>Digital products for</span> the sports industry",
+        "text": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+        "color": "blue",
+        "image": {
+            "alt": "Hero Image Alt",
+            "default": "hero/home.png",
+            "sm": "hero/home-mobile.png",
+            "md": "hero/home-mobile.png"
+        }
+    },
+    "clients": {
+        "text": "Trusted by",
+        "logos": [
+            {
+                "image": "client-logos/AFC-Bournemouth.svg",
+                "imageAlt": "AFC Bournemouth"
+            },
+            {
+                "image": "client-logos/Manchester-City.svg",
+                "imageAlt": "Manchester City"
+            },
+            {
+                "image": "client-logos/Newcastle-United.svg",
+                "imageAlt": "Newcastle United"
+            },
+            {
+                "image": "client-logos/PSG.svg",
+                "imageAlt": "PSG"
+            },
+            {
+                "image": "client-logos/QPR.svg",
+                "imageAlt": "QPR"
+            }
+        ]
+    },
+    "posts": [
+        {
+            "title": "Something is wrong with the internet",
+            "url": "https://medium.com/@jamesbridle/something-is-wrong-on-the-internet-c39c471271d2"
+        },
+        {
+            "title": "Our redesign of Medium’s Claps…and why they may not have chosen to do it this way.",
+            "url": "https://medium.com/tomyum/our-redesign-of-mediums-claps-and-why-they-may-not-have-chosen-to-do-it-this-way-edc9ff6b586e"
+        },
+        {
+            "title": "How I (re)built the Medium clap effect — and what I got out of the experiment.",
+            "url": "https://medium.freecodecamp.org/how-i-re-built-the-medium-clap-effect-and-what-i-got-out-of-the-experiment-991672995fdf"
+        }
+    ],
+    "companyOverview": {
+        "title": "<span>Company</span> overview",
+        "introduction": "We are a team of creators. Designers, strategists and engineers, passionate about creating beautiful digital experiences.",
+        "text": "<p>We create digital products and use them to shape bespoke, cutting-edge digital experiences for global sports brands around the world.</p>",
+        "color": "blue",
+        "background": "grey"
+    },
+    "productEcosystem": {
+        "title": "<span>Our product</span> eco-system",
+        "text": "<p>A modular, scalable and constantly evolving eco-system of tools and products that gives sports organisations total control of their digital estates.</p><p>Built around our central publishing hub, products can be added to create bespoke solutions to meet the evolving needs of modern sports entities.</p>",
+        "image": {
+            "alt": "Alt text for image",
+            "default": "placeholder.png"
+        },
+        "color": "orange"
+    },
+    "productListing": {
+        "title": "Our products",
+        "introdction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+        "products": ["publishing", "lively", "voice"]
+    }
+}

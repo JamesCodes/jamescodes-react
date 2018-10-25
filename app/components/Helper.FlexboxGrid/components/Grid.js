@@ -7,21 +7,20 @@ const propTypes = {
     fluid: PropTypes.bool,
     className: PropTypes.string,
     tagName: PropTypes.string,
-    children: PropTypes.node,  // eslint-disable-line react/no-unused-prop-types
+    children: PropTypes.node, // eslint-disable-line react/no-unused-prop-types
     nested: PropTypes.bool,
 };
 
 export default function Grid(props) {
-    const containerClass = getClass(
-        props.fluid ? 'container-fluid' : 'container'
-    );
-    const nestedClass = getClass(
-        props.nested ? 'container-nested' : ''
-    );
-    const classNames = [props.className, containerClass, nestedClass];
+    const {
+        fluid, nested, className, tagName,
+    } = props;
+    const containerClass = getClass(fluid ? 'container-fluid' : 'container');
+    const nestedClass = getClass(nested ? 'container-nested' : '');
+    const classNames = [className, containerClass, nestedClass];
 
     return React.createElement(
-        props.tagName || 'div',
+        tagName || 'div',
         createProps(propTypes, props, classNames)
     );
 }

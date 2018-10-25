@@ -1,6 +1,6 @@
 /**
  *
- * HelperPage
+ * Helper Page
  *
  */
 
@@ -9,36 +9,43 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { debounce } from 'lodash';
 
 import LOADER_ACTIONS_SHAPE from 'proptypes/loaderActions';
 import breakpoints from 'utils/getBreakpoints';
 
+import SiteHeader from 'components/Molecule.Site.Header';
+import SiteFooter from 'components/Molecule.Site.Footer';
+
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
+import content from 'content/generic.json';
 import makeSelectHelperPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import styles from './styles.css';
+import styles from './styles.scss';
 
 const withHelperPage = (WrappedComponent) => {
     class HelperPage extends React.PureComponent {
+        static propTypes = {
+            loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
+            loaderProps: PropTypes.shape({
+                initialLoad: PropTypes.bool.isRequired,
+            }).isRequired,
+        };
 
         constructor(props) {
             super(props);
             this.sizes = breakpoints;
             this.mounted = false;
-            this.state = { breakpoint: this.detectbreakpoint(false) };
-            this.detectbreakpoint = debounce(
-                this.detectbreakpoint.bind(this),
-                300
-            );
+            this.state = { breakpoint: this.detectbreakpoint(true) };
+            this.detectbreakpoint = this.detectbreakpoint.bind(this);
         }
 
         componentDidMount() {
             window.addEventListener('resize', this.detectbreakpoint);
             this.detectbreakpoint();
             this.mounted = true;
+            window.scrollTo(0, 0);
         }
 
         componentWillUnmount() {
@@ -46,16 +53,18 @@ const withHelperPage = (WrappedComponent) => {
             this.mounted = false;
         }
 
-        detectbreakpoint(update = true) {
+        detectbreakpoint(returnProps) {
             const width = window.innerWidth;
             const { sizes, mounted } = this;
-            const nextbreakpoint = sizes.findIndex((size) => size.width > width);
-            const breakpoint =
-                nextbreakpoint > -1
-                    ? sizes[nextbreakpoint - 1]
-                    : sizes[sizes.length - 1];
-            if (update && mounted) this.setState({ breakpoint });
-            return breakpoint;
+            const nextbreakpoint = sizes.findIndex(
+                (size) => size.width > width
+            );
+            const breakpoint = nextbreakpoint > -1
+                ? sizes[nextbreakpoint - 1]
+                : sizes[sizes.length - 1];
+            if (returnProps === true) return breakpoint;
+            if (mounted) this.setState({ breakpoint });
+            return null;
         }
 
         render() {
@@ -65,25 +74,22 @@ const withHelperPage = (WrappedComponent) => {
             } = this.props;
             const { breakpoint } = this.state;
             return (
-                <div>
-                    <div className={`${styles.Page}`}>
-                        {!initialLoad && (
-                            <div>
-                                <WrappedComponent {...this.props} loaderActions={loaderActions} breakpoint={breakpoint} />
-                            </div>
-                        )}
-                    </div>
+                <div className={`${styles.Page}`}>
+                    {!initialLoad && (
+                        <React.Fragment>
+                            <SiteHeader />
+                            <WrappedComponent
+                                {...this.props}
+                                loaderActions={loaderActions}
+                                breakpoint={breakpoint}
+                            />
+                            <SiteFooter {...content.footer} />
+                        </React.Fragment>
+                    )}
                 </div>
             );
         }
     }
-
-    HelperPage.propTypes = {
-        loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
-        loaderProps: PropTypes.shape({
-            initialLoad: PropTypes.bool.isRequired,
-        }).isRequired,
-    };
 
     const mapStateToProps = createStructuredSelector({
         helperPageProps: makeSelectHelperPage(),
@@ -93,12 +99,19 @@ const withHelperPage = (WrappedComponent) => {
         return { dispatch };
     }
 
-    const withConnect = connect(mapStateToProps, mapDispatchToProps);
+    const withConnect = connect(
+        mapStateToProps,
+        mapDispatchToProps
+    );
 
     const withReducer = injectReducer({ key: 'HelperPage', reducer });
     const withSaga = injectSaga({ key: 'HelperPage', saga });
 
-    return compose(withReducer, withSaga, withConnect)(HelperPage);
+    return compose(
+        withReducer,
+        withSaga,
+        withConnect
+    )(HelperPage);
 };
 
 export default withHelperPage;

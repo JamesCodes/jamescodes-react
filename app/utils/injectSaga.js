@@ -18,10 +18,16 @@ import getInjectors from './sagaInjectors';
 export default ({ key, saga, mode }) => (WrappedComponent) => {
     class InjectSaga extends React.Component {
         static WrappedComponent = WrappedComponent;
+
         static contextTypes = {
             store: PropTypes.object.isRequired,
         };
-        static displayName = `withSaga(${(WrappedComponent.displayName || WrappedComponent.name || 'Component')})`;
+
+        static displayName = `withSaga(${WrappedComponent.displayName
+            || WrappedComponent.name
+            || 'Component'})`;
+
+        injectors = getInjectors(this.context.store); // eslint-disable-line
 
         componentWillMount() {
             const { injectSaga } = this.injectors;
@@ -35,12 +41,10 @@ export default ({ key, saga, mode }) => (WrappedComponent) => {
             ejectSaga(key);
         }
 
-        injectors = getInjectors(this.context.store);
-
         render() {
             return <WrappedComponent {...this.props} />;
         }
-  }
+    }
 
     return hoistNonReactStatics(InjectSaga, WrappedComponent);
 };

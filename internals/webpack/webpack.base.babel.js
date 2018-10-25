@@ -4,8 +4,8 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const webpackPostcssTools = require('webpack-postcss-tools');
-const map = webpackPostcssTools.makeVarMap('./app/styles/settings.css');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -14,6 +14,7 @@ const map = webpackPostcssTools.makeVarMap('./app/styles/settings.css');
 process.noDeprecation = true;
 
 module.exports = (options) => ({
+    mode: options.mode,
     entry: options.entry,
     output: Object.assign(
         {
@@ -23,8 +24,9 @@ module.exports = (options) => ({
         },
         options.output
     ), // Merge with env dependent settings
+    optimization: options.optimization,
     module: {
-        rules: [
+        rules: options.module.rules.concat([
             {
                 test: /\.js$/, // Transform all .js files required somewhere with Babel
                 exclude: /node_modules/,
@@ -34,48 +36,27 @@ module.exports = (options) => ({
                 },
             },
             {
-                test: /\.s?css$/,
-                exclude: /node_modules/,
-                use: [
-                    'style-loader',
+                test: /\.scss$/,
+                use: ['css-hot-loader'].concat([
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {
                             modules: true,
-                            importLoaders: 1,
-                        },
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            ident: 'postcss',
-                            plugins: () => [
-                                require('postcss-cssnext')({ // eslint-disable-line global-require
-                                    browsers: [
-                                        '> 1%',
-                                        'last 2 versions',
-                                        'ie 10',
-                                        'Safari 10',
-                                    ],
-                                    features: {
-                                        customProperties: {
-                                            variables: map.vars,
-                                        },
-                                        customMedia: {
-                                            extensions: map.media,
-                                        },
-                                    },
-                                }),
-                            ],
-                        },
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
                             sourceMap: true,
+                            importLoaders: 2,
+                            localIdentName:
+                                'c-[folder]__[name]-[hash:base64:5]',
                         },
                     },
-                ],
+                    'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: 'app/global-styles/vars/**/*.scss',
+                        },
+                    },
+                ]),
             },
             {
                 // Preprocess 3rd party .css files located in node_modules
@@ -88,33 +69,11 @@ module.exports = (options) => ({
                 use: 'file-loader',
             },
             {
-                test: /\.(jpg|png|gif)$/,
-                use: [
-                    'file-loader',
-                    {
-                        loader: 'image-webpack-loader',
-                        options: {
-                            progressive: true,
-                            optimizationLevel: 7,
-                            interlaced: false,
-                            pngquant: {
-                                quality: '65-90',
-                                speed: 4,
-                            },
-                        },
-                    },
-                ],
-            },
-            {
                 test: /\.html$/,
                 use: 'html-loader',
             },
             {
-                test: /\.json$/,
-                use: 'json-loader',
-            },
-            {
-                test: /\.(mp4|webm)$/,
+                test: /\.(mp4|webm|ico)$/,
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -122,13 +81,27 @@ module.exports = (options) => ({
                     },
                 },
             },
-        ],
+        ]),
     },
     plugins: options.plugins.concat([
         new webpack.ProvidePlugin({
             // make fetch available
             fetch: 'exports-loader?self.fetch!whatwg-fetch',
         }),
+
+        new CopyWebpackPlugin(
+            [
+                {
+                    context: './app/',
+                    from: './_redirects',
+                    to: './',
+                    force: true,
+                },
+            ],
+            {
+                copyUnmodified: true,
+            }
+        ),
 
         // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
         // inside your code for any environment checks; UglifyJS will automatically
@@ -139,6 +112,10 @@ module.exports = (options) => ({
             },
         }),
         new webpack.NamedModulesPlugin(),
+
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+        }),
     ]),
     resolve: {
         modules: ['app', 'node_modules'],
@@ -148,7 +125,4 @@ module.exports = (options) => ({
     devtool: options.devtool,
     target: 'web', // Make web variables accessible to webpack, e.g. window
     performance: options.performance || {},
-    node: {
-        fs: 'empty',
-    },
 });

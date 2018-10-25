@@ -14,16 +14,25 @@ import TransitionFade from 'components/Helper.Transitions/Transition.Fade';
 import { compose } from 'redux';
 import classNames from 'classnames';
 
-import Spacer from 'components/Atom.Spacer';
 import injectReducer from 'utils/injectReducer';
 import makeSelectHelperLoader from './selectors';
 import reducer from './reducer';
 import { showLoader, hideLoader, initialLoadComplete } from './actions';
-import styles from './styles.css';
+import styles from './styles.scss';
 
 
 const withLoader = (WrappedComponent) => {
     class HelperLoader extends React.PureComponent {
+        static propTypes = {
+            loaded: PropTypes.func.isRequired,
+            loaderProps: PropTypes.shape({
+                loading: PropTypes.bool.isRequired,
+                message: PropTypes.string.isRequired,
+                initialLoad: PropTypes.bool.isRequired,
+            }).isRequired,
+            loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
+        };
+
         constructor(props) {
             super(props);
             this.state = { showMessage: false };
@@ -66,7 +75,7 @@ const withLoader = (WrappedComponent) => {
                         [styles.Open]: loading,
                     })}
                 >
-                    <TransitionGroup className="loader">
+                    <TransitionGroup>
                         {loading && (
                             <TransitionFade
                                 onEntered={() => this.entered()}
@@ -81,11 +90,9 @@ const withLoader = (WrappedComponent) => {
                                             }
                                         )}
                                     >
-                                        <Spacer>
-                                            <div className={styles.Text}>
-                                                {message}
-                                            </div>
-                                        </Spacer>
+                                        <div className={styles.Text}>
+                                            {message}
+                                        </div>
                                     </div>
                                 </div>
                             </TransitionFade>
@@ -99,16 +106,6 @@ const withLoader = (WrappedComponent) => {
             );
         }
     }
-
-    HelperLoader.propTypes = {
-        loaded: PropTypes.func.isRequired,
-        loaderProps: PropTypes.shape({
-            loading: PropTypes.bool.isRequired,
-            message: PropTypes.string.isRequired,
-            initialLoad: PropTypes.bool.isRequired,
-        }).isRequired,
-        loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
-    };
 
     const mapStateToProps = createStructuredSelector({
         loaderProps: makeSelectHelperLoader(),

@@ -36,8 +36,14 @@ function getRowClassNames(props) {
     for (let i = 0; i < rowKeys.length; i += 1) {
         const key = rowKeys[i];
         const value = props[key];
-        if (value) {
-            modificators.push(getClass(`${key}-${value}`));
+        if (value && value !== 'none') {
+            if (value.includes(',')) {
+                value
+                    .split(',')
+                    .forEach((splitValue) => modificators.push(getClass(`${key}-${splitValue}`)));
+            } else {
+                modificators.push(getClass(`${key}-${value}`));
+            }
         }
     }
 
@@ -53,7 +59,8 @@ export function getRowProps(props) {
 }
 
 export default function Row(props) {
-    return React.createElement(props.tagName || 'div', getRowProps(props));
+    const { tagName } = props;
+    return React.createElement(tagName || 'div', getRowProps(props));
 }
 
 Row.propTypes = propTypes;

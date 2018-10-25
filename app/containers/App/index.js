@@ -36,11 +36,12 @@ const wrapComponent = (component, options) => withLoader(withHelperPage(componen
 
 export default function App() {
     return (
-        <div>
+        <React.Fragment>
             <Switch>
                 <Route exact path="/" component={wrapComponent(PageHome)} />
+                <Route exact path="/oops" component={PageNotFound} />
                 <Route component={PageNotFound} />
             </Switch>
-        </div>
+        </React.Fragment>
     );
 }

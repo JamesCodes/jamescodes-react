@@ -1,0 +1,5 @@
+$spacing-unit: 8px;
+
+@function spacing($size) {
+    @return $size * $spacing-unit;
+}

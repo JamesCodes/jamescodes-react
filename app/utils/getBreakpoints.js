@@ -1,7 +1,7 @@
-import styleSettings from 'styles/settings'; // eslint-disable-line import/extensions
+import styleSettings from 'global-styles/core.scss';
 export default Object.keys(styleSettings)
-    .filter((setting) => setting.indexOf('screen') > -1)
+    .filter((setting) => setting.indexOf('viewport') > -1)
     .map((setting) => ({
-        id: setting.replace('screen-', ''),
+        id: setting.replace('viewport-', ''),
         width: parseInt(styleSettings[setting], 10),
     }));

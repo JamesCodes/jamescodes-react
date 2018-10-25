@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: $font-family-sans-serif;
+    color: $color-dark-grey;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+picture {
+    display: inherit;
+}

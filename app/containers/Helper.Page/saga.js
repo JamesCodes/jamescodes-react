@@ -2,5 +2,5 @@
 
 // Individual exports for testing
 export default function* defaultSaga() {
-  // See example in containers/PageHome/saga.js
+    // See example in containers/PageHome/saga.js
 }

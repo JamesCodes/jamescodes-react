@@ -1,0 +1,16 @@
+$speedArray: (
+    "fast": 200ms,
+    "medium": 400ms,
+    "slow": 600ms
+);
+
+@mixin transition($property, $speed, $easing: ease-out) {
+    transition: $property map-get($speedArray, $speed) $easing;
+}
+
+
+:export {
+    transition-fast: map-get($speedArray, 'fast');
+    transition-medium: map-get($speedArray, 'medium');
+    transition-slow: map-get($speedArray, 'slow');
+}

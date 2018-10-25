@@ -11,10 +11,14 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 {{/if}}
 {{#if wantStyles}}
-import styles from './styles.css';
+import styles from './styles.scss';
 {{/if}}
 
-class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line react/prefer-stateless-function
+class {{ properCase name }} extends {{{ type }}} {
+    static propTypes = {
+
+    };
+
     render() {
         return (
         {{#if wantStyles}}
@@ -33,9 +37,5 @@ class {{ properCase name }} extends {{{ type }}} { // eslint-disable-line react/
         );
     }
 }
-
-{{ properCase name }}.propTypes = {
-
-};
 
 export default {{ properCase name }};

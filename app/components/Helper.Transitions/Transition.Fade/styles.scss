@@ -1,0 +1,38 @@
+/**
+ * Appear transitions
+ */
+
+.Appear {
+    opacity: 0;
+}
+
+.AppearActive {
+    opacity: 1;
+    @include transition(opacity, fast, ease-in);
+}
+
+/**
+ * Enter transitions
+ */
+
+.Enter {
+    opacity: 0;
+}
+
+.EnterActive {
+    opacity: 1;
+    @include transition(opacity, medium, ease-in);
+}
+
+/**
+ * Leave transitions
+ */
+
+.Leave {
+    opacity: 1;
+}
+
+.LeaveActive {
+    opacity: 0;
+    @include transition(opacity, medium, ease-in);
+}

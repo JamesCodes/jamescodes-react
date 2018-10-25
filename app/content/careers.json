@@ -1,0 +1,164 @@
+{
+    "page": {
+        "title": "Careers",
+        "description": "Description about Careers Page"
+    },
+    "hero": {
+        "title": "<span>This is about</span> current jobs",
+        "text": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+        "color": "mint",
+        "image": {
+            "alt": "Hero Image Alt",
+            "default": "hero/careers.png",
+            "sm": "hero/careers-mobile.png",
+            "md": "hero/careers-mobile.png"
+        }
+    },
+    "companyBenefits": {
+        "title": "<span>Why work</span> with us",
+        "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.         ",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a scelerisque nisl, at lacinia mauris. Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis.</p>",
+        "color": "mint",
+        "background": "grey"
+    },
+    "culture": {
+        "title": "<span>Our</span> culture",
+        "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.         ",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a scelerisque nisl, at lacinia mauris. Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis.</p>",
+        "color": "mint",
+        "background": "black"
+    },
+    "openings": {
+        "title": "<span>Current</span> openings",
+        "list": [
+            {
+                "title": "Senior Front End Developer",
+                "type": "Permanent",
+                "url": "senior-front-end-developer",
+                "description": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                "heroImage": {
+                    "alt": "Hero Image Alt",
+                    "default": "hero/careers.png",
+                    "sm": "hero/careers-mobile.png",
+                    "md": "hero/careers-mobile.png"
+                },
+                "summary": {
+                    "title": "Summary of role",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                },
+                "basicRequirements": {
+                    "title": "Basic requirements",
+                    "introduction": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                    "list": ["Requirement 1", "Requirement 2", "Requirement 3", "Requirement 4", "Requirement 5", "Requirement 6", "Requirement 7", "Requirement 8", "Requirement 9", "Requirement 10", "Requirement 11", "Requirement 12"]
+                },
+                "details": {
+                    "title": "<span>The</span> details",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a commodo nisl. Etiam sit amet dapibus magna. Curabitur id pellentesque augue, eget tempus velit. Pellentesque egestas, ex vel interdum aliquam, mi ligula pretium justo, at dignissim mi mi in nunc. Vivamus eu nulla vitae orci luctus sollicitudin non posuere lorem. Vestibulum pharetra sem ut mauris viverra, sollicitudin eleifend magna lacinia. Ut nec enim sit amet lorem semper varius nec vel enim. Maecenas vehicula et diam hendrerit malesuada. In ac magna elit. Donec libero enim, varius ac laoreet non, faucibus eu magna. Integer in fringilla turpis.</p>"
+                },
+                "benefits": {
+                    "title": "Benefits",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                }
+            },
+            {
+                "title": "Senior Project Manager",
+                "type": "Contract",
+                "url": "senior-project-manager",
+                "description": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                "heroImage": {
+                    "alt": "Hero Image Alt",
+                    "default": "hero/careers.png",
+                    "sm": "hero/careers-mobile.png",
+                    "md": "hero/careers-mobile.png"
+                },
+                "summary": {
+                    "title": "Summary of role",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                },
+                "basicRequirements": {
+                    "title": "Basic requirements",
+                    "introduction": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                    "list": ["Requirement 1", "Requirement 2", "Requirement 3", "Requirement 4", "Requirement 5", "Requirement 6", "Requirement 7", "Requirement 8", "Requirement 9", "Requirement 10", "Requirement 11", "Requirement 12"]
+                },
+                "details": {
+                    "title": "The details",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a commodo nisl. Etiam sit amet dapibus magna. Curabitur id pellentesque augue, eget tempus velit. Pellentesque egestas, ex vel interdum aliquam, mi ligula pretium justo, at dignissim mi mi in nunc. Vivamus eu nulla vitae orci luctus sollicitudin non posuere lorem. Vestibulum pharetra sem ut mauris viverra, sollicitudin eleifend magna lacinia. Ut nec enim sit amet lorem semper varius nec vel enim. Maecenas vehicula et diam hendrerit malesuada. In ac magna elit. Donec libero enim, varius ac laoreet non, faucibus eu magna. Integer in fringilla turpis.</p>"
+                },
+                "benefits": {
+                    "title": "Benefits",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                }
+            },
+            {
+                "title": "Senior .Net Developer",
+                "type": "Permanent",
+                "url": "senior-dotnet-developer",
+                "description": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                "heroImage": {
+                    "alt": "Hero Image Alt",
+                    "default": "hero/careers.png",
+                    "sm": "hero/careers-mobile.png",
+                    "md": "hero/careers-mobile.png"
+                },
+                "summary": {
+                    "title": "Summary of role",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                },
+                "basicRequirements": {
+                    "title": "Basic requirements",
+                    "introduction": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                    "list": ["Requirement 1", "Requirement 2", "Requirement 3", "Requirement 4", "Requirement 5", "Requirement 6", "Requirement 7", "Requirement 8", "Requirement 9", "Requirement 10", "Requirement 11", "Requirement 12"]
+                },
+                "details": {
+                    "title": "The details",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a commodo nisl. Etiam sit amet dapibus magna. Curabitur id pellentesque augue, eget tempus velit. Pellentesque egestas, ex vel interdum aliquam, mi ligula pretium justo, at dignissim mi mi in nunc. Vivamus eu nulla vitae orci luctus sollicitudin non posuere lorem. Vestibulum pharetra sem ut mauris viverra, sollicitudin eleifend magna lacinia. Ut nec enim sit amet lorem semper varius nec vel enim. Maecenas vehicula et diam hendrerit malesuada. In ac magna elit. Donec libero enim, varius ac laoreet non, faucibus eu magna. Integer in fringilla turpis.</p>"
+                },
+                "benefits": {
+                    "title": "Benefits",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                }
+            },
+            {
+                "title": "Head of Operations",
+                "type": "Permanent",
+                "url": "head-of-operations",
+                "description": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                "heroImage": {
+                    "alt": "Hero Image Alt",
+                    "default": "hero/careers.png",
+                    "sm": "hero/careers-mobile.png",
+                    "md": "hero/careers-mobile.png"
+                },
+                "summary": {
+                    "title": "Summary of role",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                },
+                "basicRequirements": {
+                    "title": "Basic requirements",
+                    "introduction": "A core set of features, modules and components, coupled with detailed API integrations across ticketing, eCommerce, video, SSO, CRM and data mean we get you up running as quickly as possible.",
+                    "list": ["Requirement 1", "Requirement 2", "Requirement 3", "Requirement 4", "Requirement 5", "Requirement 6", "Requirement 7", "Requirement 8", "Requirement 9", "Requirement 10", "Requirement 11", "Requirement 12"]
+                },
+                "details": {
+                    "title": "The details",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a commodo nisl. Etiam sit amet dapibus magna. Curabitur id pellentesque augue, eget tempus velit. Pellentesque egestas, ex vel interdum aliquam, mi ligula pretium justo, at dignissim mi mi in nunc. Vivamus eu nulla vitae orci luctus sollicitudin non posuere lorem. Vestibulum pharetra sem ut mauris viverra, sollicitudin eleifend magna lacinia. Ut nec enim sit amet lorem semper varius nec vel enim. Maecenas vehicula et diam hendrerit malesuada. In ac magna elit. Donec libero enim, varius ac laoreet non, faucibus eu magna. Integer in fringilla turpis.</p>"
+                },
+                "benefits": {
+                    "title": "Benefits",
+                    "introduction": "In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat.",
+                    "text": "<p>Mauris tellus libero, malesuada nec orci ut, fermentum blandit lacus. Curabitur tincidunt gravida felis, luctus accumsan purus venenatis quis. In egestas condimentum arcu et auctor. Curabitur porta id urna id auctor. Integer tristique mattis volutpat. Nulla nec lorem tempor, mattis arcu ac, finibus dolor. Aenean aliquam ultricies dictum.</p>"
+                }
+            }
+        ]
+    }
+}

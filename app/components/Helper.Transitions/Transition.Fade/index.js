@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransition } from 'react-transition-group';
-import styleSettings from 'styles/settings'; // eslint-disable-line import/extensions
-import styles from './styles.css';
-const transitionSpeed = parseInt(styleSettings['transition-speed'], 10);
+import styles from './styles.scss';
+const transitionSpeed = parseInt(styles['transition-fast'], 10);
 
 const TransitionFade = ({ children, ...props }) => (
     <CSSTransition
