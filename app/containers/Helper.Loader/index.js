@@ -15,11 +15,11 @@ import { compose } from 'redux';
 import classNames from 'classnames';
 
 import injectReducer from 'utils/injectReducer';
+import LoaderContext from './context';
 import makeSelectHelperLoader from './selectors';
 import reducer from './reducer';
 import { showLoader, hideLoader, initialLoadComplete } from './actions';
 import styles from './styles.scss';
-
 
 const withLoader = (WrappedComponent) => {
     class HelperLoader extends React.PureComponent {
@@ -35,12 +35,18 @@ const withLoader = (WrappedComponent) => {
 
         constructor(props) {
             super(props);
-            this.state = { showMessage: false };
+            this.state = {
+                showMessage: false,
+                loaderActions: props.loaderActions,
+            };
             this.showMessageTimeout = null;
         }
 
         componentDidMount() {
-            const { loaded, loaderProps: { initialLoad } } = this.props;
+            const {
+                loaded,
+                loaderProps: { initialLoad },
+            } = this.props;
             if (initialLoad) loaded();
             this.entered();
         }
@@ -66,43 +72,47 @@ const withLoader = (WrappedComponent) => {
             const { showMessage } = this.state;
             const {
                 loaderProps: { message, loading },
-                loaderActions,
             } = this.props;
 
+            const { loaderActions } = this.state;
+
             return (
-                <div
-                    className={classNames({
-                        [styles.Open]: loading,
-                    })}
+                <LoaderContext.Provider
+                    value={{
+                        loaderActions,
+                    }}
                 >
-                    <TransitionGroup>
-                        {loading && (
-                            <TransitionFade
-                                onEntered={() => this.entered()}
-                                onExited={() => this.exited()}
-                            >
-                                <div className={styles.Loader}>
-                                    <div
-                                        className={classNames(
-                                            styles.LoaderWrapper,
-                                            {
-                                                [styles.LoaderWrapperVisible]: showMessage,
-                                            }
-                                        )}
-                                    >
-                                        <div className={styles.Text}>
-                                            {message}
+                    <div
+                        className={classNames({
+                            [styles.Open]: loading,
+                        })}
+                    >
+                        <TransitionGroup>
+                            {loading && (
+                                <TransitionFade
+                                    onEntered={() => this.entered()}
+                                    onExited={() => this.exited()}
+                                >
+                                    <div className={styles.Loader}>
+                                        <div
+                                            className={classNames(
+                                                styles.LoaderWrapper,
+                                                {
+                                                    [styles.LoaderWrapperVisible]: showMessage,
+                                                }
+                                            )}
+                                        >
+                                            <div className={styles.Text}>
+                                                {message}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </TransitionFade>
-                        )}
-                    </TransitionGroup>
-                    <WrappedComponent
-                        {...this.props}
-                        loaderActions={loaderActions}
-                    />
-                </div>
+                                </TransitionFade>
+                            )}
+                        </TransitionGroup>
+                        <WrappedComponent {...this.props} />
+                    </div>
+                </LoaderContext.Provider>
             );
         }
     }
@@ -121,11 +131,17 @@ const withLoader = (WrappedComponent) => {
         };
     }
 
-    const withConnect = connect(mapStateToProps, mapDispatchToProps);
+    const withConnect = connect(
+        mapStateToProps,
+        mapDispatchToProps
+    );
 
     const withReducer = injectReducer({ key: 'HelperLoader', reducer });
 
-    return compose(withReducer, withConnect)(HelperLoader);
+    return compose(
+        withReducer,
+        withConnect
+    )(HelperLoader);
 };
 
 export default withLoader;

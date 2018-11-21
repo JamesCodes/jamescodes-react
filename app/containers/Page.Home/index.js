@@ -10,18 +10,16 @@
  */
 
 import React from 'react';
-import LOADER_ACTIONS_SHAPE from 'proptypes/loaderActions';
+import LoaderContext from 'containers/Helper.Loader/context';
 import { Helmet } from 'react-helmet';
 import content from 'content/home.json';
 import styles from './styles.scss';
 
 export default class HomePage extends React.PureComponent {
-    static propTypes = {
-        loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
-    };
+    static contextType = LoaderContext;
 
     componentDidMount() {
-        const { loaderActions } = this.props;
+        const { loaderActions } = this.context;
         loaderActions.hide();
     }
 

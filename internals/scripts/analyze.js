@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const shelljs = require('shelljs');
-const animateProgress = require('./helpers/progress');
 const chalk = require('chalk');
+const animateProgress = require('./helpers/progress');
 const addCheckMark = require('./helpers/checkmark');
 
 const progress = animateProgress('Generating stats');
@@ -19,11 +19,11 @@ function callback() {
     process.stdout.write(
         `\n\nOpen ${
             chalk.magenta('http://webpack.github.io/analyse/')
-            } in your browser and upload the stats.json file!${
+        } in your browser and upload the stats.json file!${
             chalk.blue(
                 `\n(Tip: ${
                     chalk.italic('CMD + double-click')
-                    } the link!)\n\n`
+                } the link!)\n\n`
             )}`
     );
 }

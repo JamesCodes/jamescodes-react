@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-import LOADER_ACTIONS_SHAPE from 'proptypes/loaderActions';
 import breakpoints from 'utils/getBreakpoints';
 
 import SiteHeader from 'components/Molecule.Site.Header';
@@ -27,7 +26,6 @@ import styles from './styles.scss';
 const withHelperPage = (WrappedComponent) => {
     class HelperPage extends React.PureComponent {
         static propTypes = {
-            loaderActions: LOADER_ACTIONS_SHAPE.isRequired,
             loaderProps: PropTypes.shape({
                 initialLoad: PropTypes.bool.isRequired,
             }).isRequired,
@@ -69,7 +67,6 @@ const withHelperPage = (WrappedComponent) => {
 
         render() {
             const {
-                loaderActions,
                 loaderProps: { initialLoad },
             } = this.props;
             const { breakpoint } = this.state;
@@ -80,7 +77,6 @@ const withHelperPage = (WrappedComponent) => {
                             <SiteHeader />
                             <WrappedComponent
                                 {...this.props}
-                                loaderActions={loaderActions}
                                 breakpoint={breakpoint}
                             />
                             <SiteFooter {...content.footer} />
